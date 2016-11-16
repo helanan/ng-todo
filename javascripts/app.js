@@ -9,6 +9,7 @@ app.controller("NavCtrl", function($scope){
 app.controller("TodoCtrl", function($scope){
 	$scope.welcome = "hi";
 	$scope.showListView = true;
+	$scope.newTask = {};
 	$scope.items = [
 		{
 			id: 0,
@@ -18,17 +19,17 @@ app.controller("TodoCtrl", function($scope){
 		},
 		{
 			id: 1,
-			task: "mow the lawn2",
+			task: "grade quizzes",
 			isCompleted: false,
-			assignedTo: "Helena"
+			assignedTo: "Helana"
 		},
 		{
 			id: 2,
-			task: "mow the lawn3",
+			task: "take nap",
 			isCompleted: false,
 			assignedTo: "Zoe"
 		}
-	]
+	];
 
 	$scope.allItems = function(){
 		console.log("you clicked all items");
@@ -38,5 +39,17 @@ app.controller("TodoCtrl", function($scope){
 		console.log("you clicked new item");
         $scope.showListView = false;
 	};
-})
+
+	$scope.addNewItem = function(){
+		$scope.newTask.isCompleted = false;
+		$scope.newTask.id = $scope.items.length;
+		console.log("new Task in function", $scope.newTask);
+		$scope.items.push($scope.newTask);
+		$scope.newTask = "";
+		$scope.showListView = true;
+	};
+
+
+
+});
 
