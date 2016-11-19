@@ -14,10 +14,10 @@ app.controller("TodoCtrl", function($scope, ItemFactory){
 getItems();
 	$scope.allItems = function(){
         $scope.showListView = true;
-	};
+	}
 	$scope.newItem = function(){
         $scope.showListView = false;
-	};
+	}
 
 	$scope.addNewItem = function(){
 		$scope.newTask.isCompleted = false;
@@ -25,6 +25,13 @@ getItems();
 		getItems();
 			$scope.newTask = {};
 			$scope.showListView = true;
-		});
+		})
+	}
+
+	$scope.deleteItem = function(itemId){
+		console.log("you deleted me", itemId);
+		ItemFactory.deleteItem(itemId).then(function(response){
+			getItems();
+		})
 	}
 });

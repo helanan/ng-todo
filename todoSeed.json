@@ -1,6 +1,7 @@
 {
 	"items":{
 		"item0":{
+			"id": 0,
 			"task": "mow the lawn",
 			"isCompleted": true,
 			"assignedTo": "Zoe"
